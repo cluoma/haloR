@@ -1,0 +1,11 @@
+Package: h5api
+Type: Package
+Title: Access Halo 5 API
+Version: 0.1
+Date: 2015-11-08
+Author: Colin Luoma
+Maintainer: Colin Luoma <themjolnir999@gmail.com>
+Description: Provides various function to easily get data from 343i's web Halo 5 API.
+License: GPL-2
+LazyData: TRUE
+Depends: httr, jsonlite, png
