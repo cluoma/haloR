@@ -213,7 +213,7 @@ getSkulls <- function(url = url_metadata, key = "") {
   r_url <- paste0(url, "skulls")
   request <- getRequestJSON(r_url, key)
 }
-getCSpartanRanks <- function(url = url_metadata, key = "") {
+getSpartanRanks <- function(url = url_metadata, key = "") {
   r_url <- paste0(url, "spartan-ranks")
   request <- getRequestJSON(r_url, key)
 }
