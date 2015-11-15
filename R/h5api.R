@@ -10,7 +10,7 @@ require(jsonlite)
 require(png)
 
 # Basic URLs to access various API features
-getUrl <- function(type = "profile") {
+get_api_url <- function(type = "profile") {
   url <- "https://www.haloapi.com/"
   if (type == "metadata") {
     url<- paste0(url_api, "metadata/h5/metadata/")
@@ -57,7 +57,7 @@ getRequestJSON <- function(url, key) {
 getProfileEmblem <- function(player, size = 256, key = "") {
   # Gets the users in-game emblem in png format
   # Acceptable sizes: 95, 128, 190, 256, 512
-  r_url <- paste0(getUrl("profile"),
+  r_url <- paste0(get_api_url("profile"),
                   tolower(player), "/emblem?size=", size)
   request <- getRequestIMG(r_url, key)
 }
@@ -68,7 +68,7 @@ getProfileSpartan <- function(player, size = 256, crop = "full", key = "") {
   # Gets a picture of the users spartan in png format
   # Acceptable sizes: 95, 128, 190, 256, 512
   # Acceptable crop: "full", "portrait"
-  r_url <- paste0(getUrl("profile"),
+  r_url <- paste0(get_api_url("profile"),
                   tolower(player), "/spartan?size=", size, "&crop=", crop)
   request <- getRequestIMG(r_url, key)
 }
