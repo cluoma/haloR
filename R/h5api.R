@@ -79,12 +79,13 @@ getProfileSpartan <- function(player, size = 256, crop = "full", key = "") {
 # Functions to access various statistics about players and matches
 #' Get a player's most recent matches
 #' @export
-getRecentMatches <- function(url = url_player_stats, player = "", modes = "arena,campaign,custom,warzone", start = 0, count = 25, key = "") {
+getRecentMatches <- function(player = "", modes = "arena,campaign,custom,warzone", start = 0, count = 25, key = "") {
   # Gets statistics on the most recent matches of the provides player
   # Acceptable modes: arena, campaign, custom, warzone
   # Acceptable start: 0-...
   # Acceptable count: 1-25
-  r_url <- paste0(url, tolower(player),
+  r_url <- paste0(get_api_url("player_stats"),
+                  tolower(player),
                   "/matches?modes=", modes,
                   "&start=", start,
                   "&count=", count)
@@ -109,24 +110,28 @@ getPostCarnage <- function(mode = "", match_id = "", key = "") {
   }
 }
 
-getArenaMatch <- function(url = url_arena_stats, match_id = "", key = "") {
+getArenaMatch <- function(match_id = "", key = "") {
   # Get post-carnage statistics from the given match_id
-  r_url <- paste0(url, tolower(match_id))
+  r_url <- paste0(get_api_url("arena_stats"),
+                  tolower(match_id))
   request <- getRequestJSON(r_url, key)
 }
-getCampaignMatch <- function(url = url_campaign_stats, match_id = "", key = "") {
+getCampaignMatch <- function(match_id = "", key = "") {
   # Get post-carnage statistics from the given match_id
-  r_url <- paste0(url, tolower(match_id))
+  r_url <- paste0(get_api_url("campaign_stats"),
+                  tolower(match_id))
   request <- getRequestJSON(r_url, key)
 }
-getCustomMatch <- function(url = url_custom_stats, match_id = "", key = "") {
+getCustomMatch <- function(match_id = "", key = "") {
   # Get post-carnage statistics from the given match_id
-  r_url <- paste0(url, tolower(match_id))
+  r_url <- paste0(get_api_url("custom_stats"),
+                  tolower(match_id))
   request <- getRequestJSON(r_url, key)
 }
-getWarzoneMatch <- function(url = url_warzone_stats, match_id = "", key = "") {
+getWarzoneMatch <- function(match_id = "", key = "") {
   # Get post-carnage statistics from the given match_id
-  r_url <- paste0(url, tolower(match_id))
+  r_url <- paste0(get_api_url("warzone_stats"),
+                  tolower(match_id))
   request <- getRequestJSON(r_url, key)
 }
 
@@ -148,24 +153,28 @@ getServiceRecord <- function(mode = "", players = "", key = "") {
   }
 }
 
-getArenaService <- function(url = url_service, players = "", key = "") {
+getArenaService <- function(players = "", key = "") {
   # Get the provided users service record for Arena matchmaking
-  r_url <- paste0(url, "arena/?players=", tolower(players))
+  r_url <- paste0(get_api_url("service"),
+                  "arena/?players=", tolower(players))
   request <- getRequestJSON(r_url, key)
 }
-getCampaignService <- function(url = url_service, players = "", key = "") {
+getCampaignService <- function(players = "", key = "") {
   # Get the provided users service record for Campaign
-  r_url <- paste0(url, "campaign/?players=", tolower(players))
+  r_url <- paste0(get_api_url("service"),
+                  "campaign/?players=", tolower(players))
   request <- getRequestJSON(r_url, key)
 }
-getCustomService <- function(url = url_service, players = "", key = "") {
+getCustomService <- function(players = "", key = "") {
   # Get the provided users service record for Custom games
-  r_url <- paste0(url, "custom/?players=", tolower(players))
+  r_url <- paste0(get_api_url("service"),
+                  "custom/?players=", tolower(players))
   request <- getRequestJSON(r_url, key)
 }
-getWarzoneService <- function(url = url_service, players = "", key = "") {
+getWarzoneService <- function(players = "", key = "") {
   # Get the provided users service record for Warzone matchmaking
-  r_url <- paste0(url, "warzone/?players=", tolower(players))
+  r_url <- paste0(get_api_url("service"),
+                  "warzone/?players=", tolower(players))
   request <- getRequestJSON(r_url, key)
 }
 
@@ -175,115 +184,134 @@ getWarzoneService <- function(url = url_service, players = "", key = "") {
 # Functions to access various metadata (ids etc.)
 #' Get campaign missions metadata
 #' @export
-getCampaignMissions <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "campaign-missions")
+getCampaignMissions <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "campaign-missions")
   request <- getRequestJSON(r_url, key)
 }
 #' Get commendation metadata
 #' @export
-getCommendations <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "commendations")
+getCommendations <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "commendations")
   request <- getRequestJSON(r_url, key)
 }
 #' Get CSR designations metadata
 #' @export
-getCsrDesignations <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "csr-designations")
+getCsrDesignations <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "csr-designations")
   request <- getRequestJSON(r_url, key)
 }
 #' Get enemies metadata
 #' @export
-getEnemies <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "enemies")
+getEnemies <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "enemies")
   request <- getRequestJSON(r_url, key)
 }
 #' Get flexible stats metadata
 #' @export
-getFlexibleStats <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "flexible-stats")
+getFlexibleStats <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "flexible-stats")
   request <- getRequestJSON(r_url, key)
 }
 #' Get game base variants metadata
 #' @export
-getGameBaseVariants <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "game-base-variants")
+getGameBaseVariants <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "game-base-variants")
   request <- getRequestJSON(r_url, key)
 }
 #' Get game variants metadata
 #' @export
-getGameVariants <- function(url = url_metadata, id = "", key = "") {
-  r_url <- paste0(url, "game-variants/", tolower(id))
+getGameVariants <- function(id = "", key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "game-variants/", tolower(id))
   request <- getRequestJSON(r_url, key)
 }
 #' Get impulses metadata
 #' @export
-getImpulses <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "impulses")
+getImpulses <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "impulses")
   request <- getRequestJSON(r_url, key)
 }
 #' Get map variants metadata
 #' @export
-getMapVariants <- function(url = url_metadata, id = "", key = "") {
-  r_url <- paste0(url, "map-variants/", tolower(id))
+getMapVariants <- function(id = "", key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "map-variants/", tolower(id))
   request <- getRequestJSON(r_url, key)
 }
 #' Get maps metadata
 #' @export
-getMaps <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "maps")
+getMaps <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "maps")
   request <- getRequestJSON(r_url, key)
 }
 #' Get medals metadata
 #' @export
-getMedals <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "medals")
+getMedals <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "medals")
   request <- getRequestJSON(r_url, key)
 }
 #' Get playlists metadata
 #' @export
-getPlaylists <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "playlists")
+getPlaylists <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "playlists")
   request <- getRequestJSON(r_url, key)
 }
 #' Get Requisition packs metadata
 #' @export
-getRequisitionPacks <- function(url = url_metadata, id = "", key = "") {
-  r_url <- paste0(url, "requisition-packs/", tolower(id))
+getRequisitionPacks <- function(id = "", key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "requisition-packs/", tolower(id))
   request <- getRequestJSON(r_url, key)
 }
 #' Get requisitions metadata
 #' @export
-getRequisitions <- function(url = url_metadata, id = "", key = "") {
-  r_url <- paste0(url, "requisitions/", tolower(id))
+getRequisitions <- function(id = "", key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "requisitions/", tolower(id))
   request <- getRequestJSON(r_url, key)
 }
 #' Get skulls metadata
 #' @export
-getSkulls <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "skulls")
+getSkulls <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "skulls")
   request <- getRequestJSON(r_url, key)
 }
 #' Get spartan ranks metadata
 #' @export
-getSpartanRanks <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "spartan-ranks")
+getSpartanRanks <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "spartan-ranks")
   request <- getRequestJSON(r_url, key)
 }
 #' Get team colours metadata
 #' @export
-getTeamColors <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "team-colors")
+getTeamColors <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "team-colors")
   request <- getRequestJSON(r_url, key)
 }
 #' Get vehicles metadata
 #' @export
-getVehicles <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "vehicles")
+getVehicles <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "vehicles")
   request <- getRequestJSON(r_url, key)
 }
 #' Get weapons metadata
 #' @export
-getWeapons <- function(url = url_metadata, key = "") {
-  r_url <- paste0(url, "weapons")
+getWeapons <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "weapons")
   request <- getRequestJSON(r_url, key)
 }

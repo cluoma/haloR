@@ -4,7 +4,7 @@
 \alias{getPlaylists}
 \title{Get playlists metadata}
 \usage{
-getPlaylists(url = url_metadata, key = "")
+getPlaylists(key = "")
 }
 \description{
 Get playlists metadata

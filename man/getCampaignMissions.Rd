@@ -4,7 +4,7 @@
 \alias{getCampaignMissions}
 \title{Get campaign missions metadata}
 \usage{
-getCampaignMissions(url = url_metadata, key = "")
+getCampaignMissions(key = "")
 }
 \description{
 Get campaign missions metadata

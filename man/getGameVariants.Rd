@@ -4,7 +4,7 @@
 \alias{getGameVariants}
 \title{Get game variants metadata}
 \usage{
-getGameVariants(url = url_metadata, id = "", key = "")
+getGameVariants(id = "", key = "")
 }
 \description{
 Get game variants metadata

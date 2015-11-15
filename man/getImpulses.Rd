@@ -4,7 +4,7 @@
 \alias{getImpulses}
 \title{Get impulses metadata}
 \usage{
-getImpulses(url = url_metadata, key = "")
+getImpulses(key = "")
 }
 \description{
 Get impulses metadata

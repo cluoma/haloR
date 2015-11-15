@@ -4,7 +4,7 @@
 \alias{getMaps}
 \title{Get maps metadata}
 \usage{
-getMaps(url = url_metadata, key = "")
+getMaps(key = "")
 }
 \description{
 Get maps metadata

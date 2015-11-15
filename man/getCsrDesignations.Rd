@@ -4,7 +4,7 @@
 \alias{getCsrDesignations}
 \title{Get CSR designations metadata}
 \usage{
-getCsrDesignations(url = url_metadata, key = "")
+getCsrDesignations(key = "")
 }
 \description{
 Get CSR designations metadata

@@ -4,7 +4,7 @@
 \alias{getCommendations}
 \title{Get commendation metadata}
 \usage{
-getCommendations(url = url_metadata, key = "")
+getCommendations(key = "")
 }
 \description{
 Get commendation metadata

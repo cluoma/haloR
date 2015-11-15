@@ -4,7 +4,7 @@
 \alias{getTeamColors}
 \title{Get team colours metadata}
 \usage{
-getTeamColors(url = url_metadata, key = "")
+getTeamColors(key = "")
 }
 \description{
 Get team colours metadata

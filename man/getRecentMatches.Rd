@@ -4,9 +4,8 @@
 \alias{getRecentMatches}
 \title{Get a player's most recent matches}
 \usage{
-getRecentMatches(url = url_player_stats, player = "",
-  modes = "arena,campaign,custom,warzone", start = 0, count = 25,
-  key = "")
+getRecentMatches(player = "", modes = "arena,campaign,custom,warzone",
+  start = 0, count = 25, key = "")
 }
 \description{
 Get a player's most recent matches

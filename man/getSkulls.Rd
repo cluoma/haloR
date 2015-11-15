@@ -4,7 +4,7 @@
 \alias{getSkulls}
 \title{Get skulls metadata}
 \usage{
-getSkulls(url = url_metadata, key = "")
+getSkulls(key = "")
 }
 \description{
 Get skulls metadata

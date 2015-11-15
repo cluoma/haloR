@@ -4,7 +4,7 @@
 \alias{getVehicles}
 \title{Get vehicles metadata}
 \usage{
-getVehicles(url = url_metadata, key = "")
+getVehicles(key = "")
 }
 \description{
 Get vehicles metadata

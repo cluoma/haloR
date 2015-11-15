@@ -4,7 +4,7 @@
 \alias{getEnemies}
 \title{Get enemies metadata}
 \usage{
-getEnemies(url = url_metadata, key = "")
+getEnemies(key = "")
 }
 \description{
 Get enemies metadata

@@ -4,7 +4,7 @@
 \alias{getFlexibleStats}
 \title{Get flexible stats metadata}
 \usage{
-getFlexibleStats(url = url_metadata, key = "")
+getFlexibleStats(key = "")
 }
 \description{
 Get flexible stats metadata

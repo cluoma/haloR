@@ -4,7 +4,7 @@
 \alias{getSpartanRanks}
 \title{Get spartan ranks metadata}
 \usage{
-getSpartanRanks(url = url_metadata, key = "")
+getSpartanRanks(key = "")
 }
 \description{
 Get spartan ranks metadata

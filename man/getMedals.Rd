@@ -4,7 +4,7 @@
 \alias{getMedals}
 \title{Get medals metadata}
 \usage{
-getMedals(url = url_metadata, key = "")
+getMedals(key = "")
 }
 \description{
 Get medals metadata

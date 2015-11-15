@@ -4,7 +4,7 @@
 \alias{getMapVariants}
 \title{Get map variants metadata}
 \usage{
-getMapVariants(url = url_metadata, id = "", key = "")
+getMapVariants(id = "", key = "")
 }
 \description{
 Get map variants metadata

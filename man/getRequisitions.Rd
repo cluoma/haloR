@@ -4,7 +4,7 @@
 \alias{getRequisitions}
 \title{Get requisitions metadata}
 \usage{
-getRequisitions(url = url_metadata, id = "", key = "")
+getRequisitions(id = "", key = "")
 }
 \description{
 Get requisitions metadata

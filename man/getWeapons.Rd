@@ -4,7 +4,7 @@
 \alias{getWeapons}
 \title{Get weapons metadata}
 \usage{
-getWeapons(url = url_metadata, key = "")
+getWeapons(key = "")
 }
 \description{
 Get weapons metadata
