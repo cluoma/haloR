@@ -13,21 +13,21 @@ require(png)
 get_api_url <- function(type = "profile") {
   url <- "https://www.haloapi.com/"
   if (type == "metadata") {
-    url<- paste0(url_api, "metadata/h5/metadata/")
+    url<- paste0(url, "metadata/h5/metadata/")
   } else if (type == "profile") {
-    url <- paste0(url_api, "profile/h5/profiles/")
+    url <- paste0(url, "profile/h5/profiles/")
   } else if (type == "player_stats") {
-    url <- paste0(url_api, "stats/h5/players/")
+    url <- paste0(url, "stats/h5/players/")
   } else if (type == "arena_stats") {
-    url <- paste0(url_api, "stats/h5/arena/matches/")
+    url <- paste0(url, "stats/h5/arena/matches/")
   } else if (type == "campaign_stats") {
-    url <- paste0(url_api, "stats/h5/campaign/matches/")
+    url <- paste0(url, "stats/h5/campaign/matches/")
   } else if (type == "custom_stats") {
-    url <- paste0(url_api, "stats/h5/custom/matches/")
+    url <- paste0(url, "stats/h5/custom/matches/")
   } else if (type == "warzone_stats") {
-    url <- paste0(url_api, "stats/h5/warzone/matches/")
+    url <- paste0(url, "stats/h5/warzone/matches/")
   } else if (type == "service") {
-    url <- paste0(url_api, "stats/h5/servicerecords/")
+    url <- paste0(url, "stats/h5/servicerecords/")
   }
   return(url)
 }
