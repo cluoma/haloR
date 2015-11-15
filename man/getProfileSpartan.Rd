@@ -4,8 +4,7 @@
 \alias{getProfileSpartan}
 \title{Get spartan profile spartan image}
 \usage{
-getProfileSpartan(url = url_profile, player, size = 256, crop = "full",
-  key = "")
+getProfileSpartan(player, size = 256, crop = "full", key = "")
 }
 \description{
 Get spartan profile spartan image

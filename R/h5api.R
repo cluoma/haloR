@@ -10,18 +10,27 @@ require(jsonlite)
 require(png)
 
 # Basic URLs to access various API features
-url_api <- "https://www.haloapi.com/"
-
-url_metadata <- paste0(url_api, "metadata/h5/metadata/")
-url_profile <- paste0(url_api, "profile/h5/profiles/")
-url_player_stats <- paste0(url_api, "stats/h5/players/")
-
-url_arena_stats <- paste0(url_api, "stats/h5/arena/matches/")
-url_campaign_stats <- paste0(url_api, "stats/h5/campaign/matches/")
-url_custom_stats <- paste0(url_api, "stats/h5/custom/matches/")
-url_warzone_stats <- paste0(url_api, "stats/h5/warzone/matches/")
-
-url_service <- paste0(url_api, "stats/h5/servicerecords/")
+getUrl <- function(type = "profile") {
+  url <- "https://www.haloapi.com/"
+  if (type == "metadata") {
+    url<- paste0(url_api, "metadata/h5/metadata/")
+  } else if (type == "profile") {
+    url <- paste0(url_api, "profile/h5/profiles/")
+  } else if (type == "player_stats") {
+    url <- paste0(url_api, "stats/h5/players/")
+  } else if (type == "arena_stats") {
+    url <- paste0(url_api, "stats/h5/arena/matches/")
+  } else if (type == "campaign_stats") {
+    url <- paste0(url_api, "stats/h5/campaign/matches/")
+  } else if (type == "custom_stats") {
+    url <- paste0(url_api, "stats/h5/custom/matches/")
+  } else if (type == "warzone_stats") {
+    url <- paste0(url_api, "stats/h5/warzone/matches/")
+  } else if (type == "service") {
+    url <- paste0(url_api, "stats/h5/servicerecords/")
+  }
+  return(url)
+}
 
 # Execute request to get an image (only used by two calls: emblem and spartan)
 getRequestIMG <- function(url, key) {
@@ -45,20 +54,22 @@ getRequestJSON <- function(url, key) {
 # Basic profile calls
 #' Get spartan profile emblem image
 #' @export
-getProfileEmblem <- function(url = url_profile, player, size = 256, key = "") {
+getProfileEmblem <- function(player, size = 256, key = "") {
   # Gets the users in-game emblem in png format
   # Acceptable sizes: 95, 128, 190, 256, 512
-  r_url <- paste0(url, tolower(player), "/emblem?size=", size)
+  r_url <- paste0(getUrl("profile"),
+                  tolower(player), "/emblem?size=", size)
   request <- getRequestIMG(r_url, key)
 }
 
 #' Get spartan profile spartan image
 #' @export
-getProfileSpartan <- function(url = url_profile, player, size = 256, crop = "full", key = "") {
+getProfileSpartan <- function(player, size = 256, crop = "full", key = "") {
   # Gets a picture of the users spartan in png format
   # Acceptable sizes: 95, 128, 190, 256, 512
   # Acceptable crop: "full", "portrait"
-  r_url <- paste0(url, tolower(player), "/spartan?size=", size, "&crop=", crop)
+  r_url <- paste0(getUrl("profile"),
+                  tolower(player), "/spartan?size=", size, "&crop=", crop)
   request <- getRequestIMG(r_url, key)
 }
 

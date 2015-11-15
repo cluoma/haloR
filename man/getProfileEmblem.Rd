@@ -4,7 +4,7 @@
 \alias{getProfileEmblem}
 \title{Get spartan profile emblem image}
 \usage{
-getProfileEmblem(url = url_profile, player, size = 256, key = "")
+getProfileEmblem(player, size = 256, key = "")
 }
 \description{
 Get spartan profile emblem image
