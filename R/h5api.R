@@ -280,6 +280,13 @@ getRequisitions <- function(id = "", key = "") {
                   "requisitions/", tolower(id))
   request <- getRequestJSON(r_url, key)
 }
+#' Get seasons metadata
+#' @export
+getSeasons <- function(key = "") {
+  r_url <- paste0(get_api_url("metadata"),
+                  "seasons")
+  request <- getRequestJSON(r_url, key)
+}
 #' Get skulls metadata
 #' @export
 getSkulls <- function(key = "") {
