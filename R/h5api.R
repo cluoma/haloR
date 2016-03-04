@@ -141,7 +141,7 @@ getServiceRecord <- function(mode = "", players = "", key = "", season = "") {
   # Abstraction of service record calls into a single funciton
   # Acceptable mode: "arena", "campaign", "custom", "warzone"
   if (mode == "arena") {
-    return(getArenaService(players = players, season = "", key = key))
+    return(getArenaService(players = players, season = season, key = key))
   } else if (mode == "campaign") {
     return(getCampaignService(players = players, key = key))
   } else if (mode == "custom") {
