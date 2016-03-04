@@ -137,11 +137,11 @@ getWarzoneMatch <- function(match_id = "", key = "") {
 
 #' Get spartan service record for a given mode
 #' @export
-getServiceRecord <- function(mode = "", players = "", key = "") {
+getServiceRecord <- function(mode = "", players = "", key = "", season = "") {
   # Abstraction of service record calls into a single funciton
   # Acceptable mode: "arena", "campaign", "custom", "warzone"
   if (mode == "arena") {
-    return(getArenaService(players = players, key = key))
+    return(getArenaService(players = players, season = "", key = key))
   } else if (mode == "campaign") {
     return(getCampaignService(players = players, key = key))
   } else if (mode == "custom") {
@@ -153,10 +153,13 @@ getServiceRecord <- function(mode = "", players = "", key = "") {
   }
 }
 
-getArenaService <- function(players = "", key = "") {
+getArenaService <- function(players = "", season = "", key = "") {
   # Get the provided users service record for Arena matchmaking
   r_url <- paste0(get_api_url("service"),
                   "arena/?players=", tolower(players))
+  if (season != "") {
+    r_url <- paste0(r_url, "&season=", season)
+  }
   request <- getRequestJSON(r_url, key)
 }
 getCampaignService <- function(players = "", key = "") {

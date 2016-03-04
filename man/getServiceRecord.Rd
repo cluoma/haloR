@@ -4,7 +4,7 @@
 \alias{getServiceRecord}
 \title{Get spartan service record for a given mode}
 \usage{
-getServiceRecord(mode = "", players = "", key = "")
+getServiceRecord(mode = "", players = "", key = "", season = "")
 }
 \description{
 Get spartan service record for a given mode
