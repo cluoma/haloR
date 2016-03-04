@@ -158,7 +158,7 @@ getArenaService <- function(players = "", season = "", key = "") {
   r_url <- paste0(get_api_url("service"),
                   "arena/?players=", tolower(players))
   if (season != "") {
-    r_url <- paste0(r_url, "&season=", season)
+    r_url <- paste0(r_url, "&seasonId=", season)
   }
   request <- getRequestJSON(r_url, key)
 }
