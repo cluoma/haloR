@@ -13,7 +13,7 @@ require(png)
 get_api_url <- function(type = "profile") {
   url <- "https://www.haloapi.com/"
   if (type == "metadata") {
-    url<- paste0(url, "metadata/h5/metadata/")
+    url <- paste0(url, "metadata/h5/metadata/")
   } else if (type == "profile") {
     url <- paste0(url, "profile/h5/profiles/")
   } else if (type == "player_stats") {
@@ -28,6 +28,8 @@ get_api_url <- function(type = "profile") {
     url <- paste0(url, "stats/h5/warzone/matches/")
   } else if (type == "service") {
     url <- paste0(url, "stats/h5/servicerecords/")
+  } else if (type == "event_stats") {
+    url <- paste0(url, "stats/h5/matches/")
   }
   return(url)
 }
@@ -77,6 +79,14 @@ getProfileSpartan <- function(player, size = 256, crop = "full", key = "") {
 # STATS
 ##
 # Functions to access various statistics about players and matches
+#' Get event stats for a match
+#' @export
+getEventStats <- function(match_id = "", key = "") {
+  r_url <- paste0(get_api_url("event_stats"),
+                  match_id, "/events")
+  request <- getRequestJSON(r_url, key)
+}
+
 #' Get a player's most recent matches
 #' @export
 getRecentMatches <- function(player = "", modes = "arena,campaign,custom,warzone", start = 0, count = 25, key = "") {
