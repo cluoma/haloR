@@ -20,4 +20,14 @@ library(dplyr)
 library(haloR)
 
 key <- "XXXXXXXXXXXXXXXXXXXXX"
+player <- "CLWakaLaka"
+
+profile <- h5_ServiceRecord(mode = "arena", player, key = key)
+
+print(paste0(
+  player, " has an overal K/D ratio of ",
+  round(profile$Results$Result$ArenaStats$TotalKills /
+          profile$Results$Result$ArenaStats$TotalDeaths,
+        digits=2)
+))
 </pre>
