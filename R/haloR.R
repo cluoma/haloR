@@ -57,6 +57,7 @@ getRequestIMG <- function(url, key) {
 }
 # Execute request to get data in JSON format
 getRequestJSON <- function(url, key) {
+  url <- gsub(" ","+",url)
   request <- httr::GET(url, httr::add_headers(
     "Ocp-Apim-Subscription-Key"=paste0(key))
   )
