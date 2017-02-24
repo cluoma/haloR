@@ -1,4 +1,4 @@
-HALO 5 API R Package
+HALO API R Package
 ====================
 
 Provides easy access to the Halo 5 and Halo Wars 2 web APIs provided by 343i.
