@@ -4,7 +4,7 @@ Title: Access Halo 5 and Halo Wars 2 API
 Version: 0.1
 Date: 2015-11-08
 Author: Colin Luoma
-Maintainer: Colin Luoma <themjolnir999@gmail.com>
+Maintainer: Colin Luoma <colin.luoma@gmail.com>
 Description: Provides various function to easily get data from 343i's Halo web API.
 License: GPL-2
 LazyData: TRUE
